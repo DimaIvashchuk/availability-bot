@@ -1,0 +1,21 @@
+{
+  "name": "techazurbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel-node index.js --presets=env"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "airtable": "^0.11.2",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "moment": "^2.29.1",
+    "node-cron": "^3.0.0",
+    "node-telegram-bot-api": "0.56.0",
+    "xlsx": "^0.18.3"
+  }
+}
