@@ -171,9 +171,16 @@ bot.on('callback_query', async msg => {
 cron.schedule('00 00 10 * * 0-6', () => startAllSurvey())
 
 const startAllSurvey = () => {
-  worksheets.users.forEach((v, index) => {
+  const workbook_a = XLSX.readFile('./data.xlsx');
+
+  let worksheets_a = {};
+  for (const sheetName of workbook_a.SheetNames) {
+    worksheets[sheetName] = XLSX.utils.sheet_to_json(workbook_a.Sheets[sheetName]);
+  }
+  worksheets_a.users.forEach((v, index) => {
     setTimeout(() => startSurvey(v.chatId), index * 2000);
   });
 };
 
-setInterval(startAllSurvey, 24 * 60 * 60 * 1000);
+
+startAllSurvey();
